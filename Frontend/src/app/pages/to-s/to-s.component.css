@@ -1,0 +1,13 @@
+*{
+    font-size: 15px;
+    background-color: #eff8fd;
+    
+}
+
+#top{
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    top: 0;
+  }
+

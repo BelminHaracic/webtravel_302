@@ -1,0 +1,30 @@
+<div class="content">
+  <h1>Upravljanje komentarima</h1>
+  
+  <div *ngFor="let destination of destinations">
+    <h2>{{ destination.city }}, {{ destination.country }}</h2>
+    
+    <table class="comment-table">
+      <thead>
+        <tr>
+          <th>Korisnik</th>
+          <th>Datum</th>
+          <th>Komentar</th>
+          <th></th> <!-- Delete button column -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let comment of destination.comments">
+          <td>{{ comment.user.username }}</td>
+          <td>{{ comment.date | date: 'dd/MM/yyyy' }}</td>
+          <td>{{ comment.message }}</td>
+          <td><button class="delete-button" (click)="deleteComment(comment)">Obriši komentar</button></td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div *ngIf="!destination.comments || destination.comments.length === 0">
+      <p>Nema komentara za ovu destinaciju.</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+#top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* adjust as needed */
+}
+
+.wrapper {
+  margin-top: 100px; /* Adjust to match the height of the navbar */
+  padding: 20px;
+  background-image: url('/assets/images/slikica.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white; /* Promijenite boju teksta prema potrebi */
+  font-weight: bold; /* Boldiranje teksta */
+    font-size: 14px;
+}
+
+
+#title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.image {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.info {
+  background-color: rgba(255, 255, 255, 0.6); /* Pozadina sa 80% bijele boje */
+  padding: 20px;
+  border-radius: 10px; /* Zaobljeni rubovi */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Senka */
+}
+.mat-form-field {
+  width: 100%; /* Puni širina polja unutar forme */
+  margin-bottom: 15px; /* Razmak između polja */
+}
+.form-title {
+  margin-bottom: 20px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+#form-btn {
+  width: 100%; /* Puni širina dugmeta */
+  margin-top: 10px; /* Razmak između polja i dugmeta */
+}
+
+/* Dodatni stilovi za validacijske poruke */
+.mat-error {
+  color: red; /* Crvena boja za poruke o grešci */
+  font-size: 12px; /* Manja veličina fonta */
+  margin-top: 5px; /* Razmak između polja i poruke o grešci */
+}
+
+/* Boja teksta unutar polja */
+.mat-input-element {
+  color: black; /* Crna boja teksta */
+}
+
+/* Boja pozadine dugmeta */
+#form-btn {
+  background-color: #007bff; /* Plava boja */
+  color: white; /* Bijeli tekst */
+}

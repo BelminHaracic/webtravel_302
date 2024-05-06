@@ -1,0 +1,126 @@
+<div class="container">
+
+  <div class="container-items">
+
+    <div id="logo">
+      <a href=""><img src="assets/images/Icon.png"></a>
+    </div>
+    <div id="left">
+      <button mat-button routerLink="/home">Početna</button>
+      <button mat-button routerLink="/discovery">Putovanja</button>
+      <button mat-button routerLink="/support">Podrška</button>
+      <button mat-button routerLink="/user" *ngIf="u != null">Moje rezervacije</button>
+    </div>
+
+  </div>
+
+  <div id="right">
+    <button mat-button (click)="toggleLoginForm()" *ngIf="u==null">Prijava</button>
+    <button mat-button (click)="toggleRegisterForm()" *ngIf="u==null">Registracija</button>
+    <div class="admin-wrapper" *ngIf="u?.role === 'admin'">
+      <a class="mat-button" routerLink="/admin">
+        <span>{{u?.username}}</span>
+        <mat-icon>admin_panel_settings</mat-icon>
+      </a>
+    </div>
+    <div class="admin-wrapper" *ngIf="u?.role === 'user'">
+      <a class="mat-button" routerLink="/user">
+        <mat-icon>person</mat-icon>
+        <span>{{ u?.username }}</span>
+      </a>
+    </div>
+    
+    <button mat-button (click)="logoutUser()" *ngIf="u!=null">Odjava</button>
+  </div>
+
+</div>
+
+<div id="sandwich">
+
+<label  for="toggle"><mat-icon>arrow_drop_down</mat-icon></label>
+<input type="checkbox" id="toggle"/>
+
+<div id="menu">
+  <button mat-button routerLink="/home">Početna</button>
+  <button mat-button routerLink="/discovery">Otkrivanje</button>
+  <button mat-button routerLink="/support">Podrška</button>
+  <div>
+    <button mat-button (click)="toggleLoginForm()" *ngIf="u==null">Prijava</button>
+    <button mat-button (click)="toggleRegisterForm()" *ngIf="u==null">Registracija</button>
+    <a class="mat-button" *ngIf="isAdminUser()" routerLink="/admin" style="margin-right: 10px;">{{u?.username}}</a>
+
+    <button mat-button (click)="logoutUser()" *ngIf="u!=null">Odjava</button>
+  </div>
+</div>
+
+</div>
+
+<div class="login" *ngIf="showLogin" >
+
+<form [formGroup]="LogInForm" (ngSubmit)="loginUser()">
+
+<div class="form-title">
+  <h1>Prijava:</h1>
+  <h1 style="cursor: pointer;"><a (click)="toggleLoginForm()"><mat-icon>cancel</mat-icon></a></h1>
+</div>
+
+<mat-form-field appearance="fill">
+  <mat-label>Korisničko ime</mat-label>
+  <input matInput formControlName="username">
+  <mat-error>Mora biti između 5 i 20 karaktera.</mat-error>
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Lozinka</mat-label>
+  <input matInput type="password" formControlName="password">
+  <mat-error>Mora imati najmanje 8 karaktera.</mat-error>
+</mat-form-field>
+
+<button mat-button type="submit" id="form-btn">Prijavi se</button>
+
+</form>
+
+<button mat-button id="reg-btn" (click)="toggleLoginForm(); toggleRegisterForm()">Nemate račun? | Registrirajte se</button>
+
+</div>
+
+<div class="register" *ngIf="showRegister">
+
+<form [formGroup]="RegisterForm" (ngSubmit)="createUser()">
+
+<div class="form-title">
+  <h1>Registracija:</h1>
+  <h1 style="cursor: pointer;"><a (click)="toggleRegisterForm()"><mat-icon>cancel</mat-icon></a></h1>
+</div>
+
+<div id="names">
+  <mat-form-field appearance="fill">
+    <mat-label>Ime</mat-label>
+    <input matInput formControlName="firstName">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Prezime</mat-label>
+    <input matInput formControlName="lastName">
+  </mat-form-field>
+</div>
+
+<mat-form-field appearance="fill">
+  <mat-label>Korisničko ime</mat-label>
+  <input matInput formControlName="usernameReg">
+  <mat-error>Mora biti između 5 i 20 karaktera.</mat-error>
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Lozinka</mat-label>
+  <input matInput type="password" formControlName="passwordReg">
+  <mat-error>Mora imati najmanje 8 karaktera.</mat-error>
+</mat-form-field>
+
+<button mat-button type="submit" id="form-btn">Registriraj se</button>
+
+</form>
+
+<button mat-button id="reg-btn" (click)="toggleRegisterForm();toggleLoginForm()">Već ste korisnik? | Prijavite se</button>
+
+</div>

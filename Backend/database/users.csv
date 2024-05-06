@@ -1,0 +1,4 @@
+_id,firstName,lastName,username,password,role,active,__v
+660c19657d193ed8048de582,Ime,Prezime,admin,admin123,admin,,
+NCoD9JJKr,b,b,belmin,belmin123,user,true,0
+xZgRCwzmF,user,user,user1,user1234,user,true,0

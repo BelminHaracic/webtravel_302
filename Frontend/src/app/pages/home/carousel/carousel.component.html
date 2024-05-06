@@ -1,0 +1,151 @@
+
+  <!-- Chip komponenta -->
+  <app-chip (onSubmit)="filter($event)"></app-chip>
+
+  <div class="search-container">
+    <!-- Polje za unos pretrage -->
+    <mat-form-field class="example-full-width">
+      <input type="text" placeholder="Pretraga destinacija po gradu ili državi" matInput [(ngModel)]="searchTerm" (input)="filterDestinations()">
+
+      <!-- Automatski prijedlozi za odabir destinacija -->
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let dest of filteredDestinations" [value]="dest.city + ', ' + dest.country">
+          {{ dest.city }}, {{ dest.country }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+
+  <div class="sort-container">
+    <!-- Odabir sortiranja po ocjeni -->
+    <div class="sort-item">
+      <label for="sortOrder">Sortiraj po ocjeni:</label>
+      <select id="sortOrder" [(ngModel)]="selectedSortOrder" (change)="sortDestinations()">
+        <option value="desc">Od najveće ocjene do najmanje</option>
+        <option value="asc">Od najmanje ocjene do najveće</option>
+      </select>
+    </div>
+
+    <!-- Odabir kontinenta za filtriranje -->
+    <div class="sort-item">
+      <label for="sortContinent">Izaberi kontinent:</label>
+      <select id="sortContinent" [(ngModel)]="selectedContinent" (change)="filterDestinations()">
+        <option value="">Svi kontinenti</option>
+        <option value="Europe">Evropa</option>
+        <option value="Asia">Azija</option>
+        <option value="Africa">Afrika</option>
+        <option value="North America">Sjeverna Amerika</option>
+        <option value="South America">Južna Amerika</option>
+        <option value="Australia">Australija</option>
+        <option value="Antarctica">Antarktik</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="carousel">
+      <!-- Prikaz destinacija koje su filtrirane -->
+      <div class="carousel-item" *ngFor="let dest of filteredDestinations">
+        <div class="image" [style.background-image]="'url(' + dest.imageURL + ')'" (click)="openDetails(dest)">
+        </div>
+        <div class="place-text">
+          <div class="hold">
+            <!-- Detalji odredišta -->
+            <p>{{ dest.city }}, <span class="country">{{ dest.country }}</span></p>
+            <p class="continent-name">{{ dest.continent }}</p>
+
+            <div class="ratings">
+              <mat-icon class="star-icon">star</mat-icon>
+              <p>{{ dest.review }}</p>
+            </div>
+          </div>
+          <!-- Dugmad za rezervaciju i komentare -->
+         <div class="buttons">
+  <button class="btn reserve-btn" (click)="openBookingDialog(dest)">REZERVIŠI SADA</button>
+  <button class="btn comment-btn" (click)="openCommentForm(dest)">
+    KOMENTARI {{ getCommentCount(dest) }}
+  </button>
+</div>
+
+          
+
+        </div>
+      </div>
+    </div>
+
+    <div class="booking" *ngIf="isBooking && selectedDestination">
+      <form [formGroup]="BookingForm" (ngSubmit)="createBooking()">
+        <div class="form-title">
+          <h1>Napravi Rezervaciju za {{ selectedDestination.city }}, {{ selectedDestination.country }}:</h1>
+          <h1><a (click)="isBooking=false"><mat-icon>cancel</mat-icon></a></h1>
+        </div>
+        <div class="destination-details">
+          <p><strong>Grad:</strong> {{ selectedDestination.city }}</p>
+          <p><strong>Država:</strong> {{ selectedDestination.country }}</p>
+          <p><strong>Kontinent:</strong> {{ selectedDestination.continent }}</p>
+          <p><strong>Kategorije:</strong>
+            <span *ngFor="let category of selectedDestination.categories">
+              {{ category }}
+            </span>
+          </p>
+          <p><strong>Opis:</strong> {{ selectedDestination.description }}</p>
+          <div class="ratings">
+            <mat-icon class="star-icon">star</mat-icon>
+            <p>{{ selectedDestination.review }}</p>
+          </div>
+          
+        </div>
+
+        <mat-form-field appearance="fill" class="mat-form-field">
+          <mat-label>Mjesto prebivališta:</mat-label>
+          <input matInput formControlName="userID">
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="mat-form-field">
+          <mat-label>Broj mobitela:</mat-label>
+          <input matInput formControlName="userID">
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="mat-form-field">
+          <mat-label>ID korisnika:</mat-label>
+          <input matInput [value]="u?._id" disabled>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="mat-form-field">
+          <mat-label>Unesite svoje ime i prezime:</mat-label>
+          <input matInput formControlName="destID">
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="mat-form-field">
+          <mat-label>Unesite raspon datuma</mat-label>
+          <mat-date-range-input [rangePicker]="picker">
+            <input matStartDate formControlName="startDate">
+            <input matEndDate formControlName="endDate">
+          </mat-date-range-input>
+          <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+        <button mat-button type="submit" id="form-btn" [disabled]="BookingForm.invalid">Rezerviši Sada</button>
+      </form>
+    </div>
+
+    <div class="comment-form" *ngIf="showCommentForm && selectedDestination">
+      <!-- Ikonica za zatvaranje prozora -->
+      <div class="close-btn" (click)="closeCommentForm()">
+        <mat-icon>close</mat-icon>
+      </div>  <!-- Prikaz svih komentara -->
+      <div class="comments-section">
+        <h2>Svi komentari:</h2>
+        <div class="comment" *ngFor="let comment of selectedDestination.comments">
+          <p><strong>{{ comment.user._id }}Korisnik:</strong> {{ comment.message }}</p>
+          <p>{{ comment.date | date: 'dd/MM/yyyy' }}</p>
+        </div>
+      </div>
+<!-- Forma za unos novog komentara -->
+<form (submit)="addComment()" action="">
+
+  <mat-form-field appearance="fill" class="mat-form-field">
+    <mat-label>Unesite svoj komentar:</mat-label>
+    <textarea matInput [(ngModel)]="newComment" name="newComment" required></textarea>
+  </mat-form-field>
+  <button mat-button type="submit" id="submit-comment-btn">Pošalji komentar</button>
+</form>
+</div>

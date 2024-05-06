@@ -1,0 +1,30 @@
+
+.container{
+  display: flex;
+  flex-direction: column;
+  background-color: #eff8fd;
+  height: 100%;
+  padding: 62px 0 50px;
+  position: sticky;
+
+}
+
+#title{
+  width: 100%;
+  margin: 0;
+
+  position: relative;
+}
+
+#title h1 {
+  text-align: center;
+  padding: 30px 0;
+  margin: auto;
+  font-size: 60px;
+  font-family: Montserrat, sans-serif;
+  font-weight: bold; 
+  color: #3b97e2;
+  text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.5); 
+}
+
+

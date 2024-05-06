@@ -1,0 +1,22 @@
+<div class="content">
+  
+  <div class="bookings">
+    <a routerLink="/home" class="home-link">
+      Vrati se na početnu stranicu
+    </a>
+    <div class="header">
+ 
+      <h2>Vaše rezervacije:</h2>
+    </div>
+    <div class="booking" *ngFor="let booking of userBookings">
+      <p><strong>ID rezervacije:</strong> {{ booking._id }}</p>
+      <p><strong>Ime i prezime:</strong> {{ booking.destinationID }}</p>
+      <p><strong>Početni datum:</strong> {{ booking.startDate }}</p>
+      <p><strong>Završni datum:</strong> {{ booking.endDate }}</p>
+      <button (click)="deleteBooking(booking._id)">Obriši rezervaciju</button>
+    </div>
+    <div *ngIf="userBookings.length === 0">
+      <p>Nemate nijednu rezervaciju.</p>
+    </div>
+  </div>
+</div>

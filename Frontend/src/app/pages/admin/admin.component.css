@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f2f7fc;
+}
+
+.header {
+  display: flex;
+  background-color: #4eaaff;
+  min-height: 100vh;
+}
+
+.side-bar {
+  width: 250px;
+  background-color: #4eaaff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  color: #fff;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #c4e5f8;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.list-item {
+  margin-bottom: 10px;
+}
+
+button.mat-button {
+  width: 100%; /* Postavljamo širinu na 100% kako bi sva dugmad bila iste širine */
+  display: flex;
+  align-items: center;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left; /* Poravnavamo tekst lijevo */
+  padding: 10px 20px; /* Dodajemo malo prostora oko teksta */
+}
+
+.title {
+  margin: 0;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.mat-icon {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.notifications {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 20px;
+  color: #333;
+}
+
+.notifications h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.notification {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.notification:last-child {
+  border-bottom: none;
+}
+
+.icon {
+  flex: 0 0 30px;
+  margin-right: 15px;
+}
+
+.icon i {
+  font-size: 24px;
+  color: #555;
+}
+
+/* Dodajemo hover efekt na dugmad */
+.list-item button.mat-button:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Promijenimo boju pozadine na hover */
+}
+
+.list-item button.mat-button:hover .title {
+  color: #fff; /* Promijenimo boju teksta na hover */
+}
+
+.list-item button.mat-button:hover .mat-icon {
+  color: #fff; /* Promijenimo boju ikone na hover */
+}

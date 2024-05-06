@@ -1,0 +1,28 @@
+.wrapper{
+    margin-top: 60px;
+  }
+  
+@media screen and (max-width: 550px){
+  .wrapper{
+    margin-top: 99px;
+  }
+}
+  
+  app-main-banner{
+    position: relative;
+  }
+  
+  #empty-space{
+    z-index: 99999;
+    height: 700px;
+    width: 100%;
+    background-color: red;
+  }
+  #top{
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    top: 0;
+  }
+  
+  

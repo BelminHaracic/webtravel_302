@@ -1,0 +1,74 @@
+<div class="header">
+  <div class="invisible-side-bar"></div>
+
+  <button mat-fab *ngIf="isShow" (click)="gotoTop()" id="scroll-to-top">
+    <mat-icon>expand_less</mat-icon>
+  </button>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <div class="side-bar">
+    <ul class="list">
+      <li class="list-item">
+        <button mat-button routerLink="/home">
+          <mat-icon class="back-icon">arrow_back</mat-icon>
+          <mat-icon class="home-icon">home</mat-icon>
+          <p class="title">Pocetna</p>
+        </button>
+      </li>
+      <li class="list-item" (click)="openPanel(panels[1])">
+        <button mat-button>
+          <mat-icon>flight</mat-icon>
+          <p class="title">Destinacije</p>
+        </button>
+      </li>
+      <li class="list-item" (click)="openPanel(panels[2])">
+        <button mat-button>
+          <mat-icon>people</mat-icon>
+          <p class="title">Korisnici</p>
+        </button>
+      </li>
+      <li class="list-item" (click)="openPanel(panels[3])">
+        <button mat-button>
+          <mat-icon>book</mat-icon>
+          <p class="title">Rezervacije</p>
+        </button>
+      </li>
+      <li class="list-item" (click)="openPanel(panels[4])">
+        <button mat-button>
+          <mat-icon>comment</mat-icon>
+          <p class="title">Upravljanje Komentarima</p>
+        </button>
+      </li>
+    </ul>
+    <div class="notifications">
+      <h2>Obavijesti i Poruke</h2>
+      <div class="notification">
+        <div class="icon"><i class="fas fa-bell"></i></div>
+        <div class="content">
+          <p class="timestamp">2024-04-02 10:00</p>
+          <p class="message">Nova ponuda: Specijalni popusti za ljetna putovanja!</p>
+        </div>
+      </div>
+      <div class="notification">
+        <div class="icon"><i class="fas fa-envelope"></i></div>
+        <div class="content">
+          <p class="timestamp">2024-04-01 14:30</p>
+          <p class="message">Obavijest: Planirano održavanje stranice u nedjelju, 5. Juna.</p>
+        </div>
+      </div>
+      <!-- Dodajte više obavijesti i poruka ovdje -->
+    </div>
+    
+  </div>
+
+  <div class="content">
+    <div class="spline" *ngIf="checkDest(panels[0])">
+      <h1>Dobro došli</h1>
+    </div>
+    
+    <app-admin-dest *ngIf="checkDest(panels[1])"></app-admin-dest>
+    <app-admin-user *ngIf="checkDest(panels[2])"></app-admin-user>
+    <app-admin-booking *ngIf="checkDest(panels[3])"></app-admin-booking>
+    <app-admin-comments *ngIf="checkDest(panels[4])"></app-admin-comments>
+  </div>
+</div>

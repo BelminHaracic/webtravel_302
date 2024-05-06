@@ -1,0 +1,110 @@
+<div class="content">
+  <!-- KORISNICI -->
+  <div class="users">
+    <mat-tab-group mat-align-tabs="center" preserveContent>
+      <!-- TAB ZA KREIRANJE -->
+      <mat-tab label="KREIRAJ">
+        <div class="create-dest">
+          <form [formGroup]="usersForm" (ngSubmit)="createUser()">
+            <div class="form-title">
+              <h1>Kreiraj novog korisnika:</h1>
+            </div>
+            <mat-form-field appearance="fill">
+              <mat-label>Ime</mat-label>
+              <input matInput formControlName="firstName">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Prezime</mat-label>
+              <input matInput formControlName="lastName">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Korisničko ime</mat-label>
+              <input #input matInput formControlName="username" maxlength="20" minlength="5">
+              <mat-error>Mora sadržavati između 5 i 20 znakova</mat-error>
+              <mat-hint align="end">{{input.value?.length || 0}}/20</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Lozinka</mat-label>
+              <input matInput [type]="hidePass ? 'password' : 'text'" formControlName="password">
+              <button mat-icon-button matSuffix (click)="hidePass = !hidePass" [attr.aria-label]="'Sakrij lozinku'"
+                [attr.aria-pressed]="hidePass">
+                <mat-icon>{{hidePass ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+              <mat-error>Minimalno 8 znakova.</mat-error>
+            </mat-form-field>
+            <button mat-button type="submit" id="form-btn">Pošalji</button>
+          </form>
+        </div>
+      </mat-tab>
+      <!-- TAB ZA UREĐIVANJE -->
+      <mat-tab label="UREĐIVANJE">
+        <div class="show-dest">
+          <mat-form-field appearance="fill">
+            <mat-label>Poredaj korisnike po</mat-label>
+            <mat-select (selectionChange)="sortUsers($event.value)">
+              <mat-option value="original">Originalni redoslijed</mat-option>
+              <mat-option value="alphabetical">Abecedno</mat-option>
+              <mat-option value="reverseAlphabetical">Obrnuto abecedno</mat-option>
+            </mat-select>
+          </mat-form-field>
+          
+          <mat-accordion #myaccordion="matAccordion" multi="true">
+            <mat-expansion-panel class="dest" *ngFor="let user of users" (opened)="panelOpenState = true"
+              (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <p>@{{user.username}}</p>
+              </mat-expansion-panel-header>
+              <div class="dest-section">
+                <div class="dest-info" style="{{showInput}}">
+                  <span>
+                    <strong>Ime:</strong>{{user.firstName}}
+                  </span>
+                  <span>
+                    <strong>Prezime:</strong>{{user.lastName}}
+                  </span>
+                  <span>
+                    <strong>Korisničko ime:</strong>{{user.username}}
+                  </span>
+                  <span>
+                    <strong>ID:</strong>{{user._id}}
+                  </span>
+                </div>
+                <div class="dest-edit" style="{{hideInput}}">
+                  <form class="editForm" [formGroup]="editFormUser" (ngSubmit)="editUser(user._id)">
+                    <mat-form-field appearance="fill">
+                      <mat-label>Ime</mat-label>
+                      <input matInput value="{{user.firstName}}" formControlName="firstName">
+                      <mat-hint><strong><i>{{user.firstName}}</i></strong></mat-hint>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                      <mat-label>Prezime</mat-label>
+                      <input matInput formControlName="lastName">
+                      <mat-hint><strong><i>{{user.lastName}}</i></strong></mat-hint>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                      <mat-label>Korisničko ime</mat-label>
+                      <input matInput value="{{user.username}}" formControlName="username">
+                      <mat-hint><strong><i>{{user.username}}</i></strong></mat-hint>
+                    </mat-form-field>
+                    <button mat-button (click)="editUser(user._id)" type="submit" style={{hideInput}}>POŠALJI</button>
+                  </form>
+                </div>
+              </div>
+<!-- Gumb "Aktiviraj korisnika" ili "Deaktiviraj korisnika" -->
+<button mat-button (click)="toggleActiveUser(user)"
+        [ngClass]="user.active ? 'mat-button-toggle-active' : 'mat-button-toggle-inactive'">
+    {{ user.active ? 'Deaktiviraj korisnika' : 'Aktiviraj korisnika' }}
+</button>
+
+              <mat-action-row>
+                <button mat-button color="warn" (click)="deleteUser(user._id)">OBRIŠI</button>
+                <button mat-button (click)="editEvent(true); " style="{{showInput}}">UREDI</button>
+                <button mat-button (click)="editEvent(false)" style={{hideInput}}>PONIŠTI</button>
+              </mat-action-row>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

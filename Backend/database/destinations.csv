@@ -1,0 +1,5 @@
+_id,city,country,description,imageURL,review,continent,categories[0],comments[0].user,comments[1].user,comments[0].message,comments[1].message,comments[0]._id,comments[1]._id,comments[0].date,comments[1].date,__v
+66392310a4786b2ca0a9db42,Venecija,Italija,Venecija je na vodii,/images/Destinations/Default.jpg,4.3,Evropa,,xZgRCwzmF,,pozz\n,,663923b9a4786b2ca0a9db53,,2024-05-06T18:38:49.246Z,,0
+6639234fa4786b2ca0a9db47,Kakanj,BiH,Kakanj je grad dobrih ljudi,/images/Destinations/Default.jpg,5,Evropa,grad,xZgRCwzmF,,caooo,,663923c4a4786b2ca0a9db57,,2024-05-06T18:39:00.927Z,,0
+66392367a4786b2ca0a9db4a,Zenica,BiH,opis za zenicu,/images/Destinations/Default.jpg,4.1,Evropa,grad,660c19657d193ed8048de582,xZgRCwzmF,Koja je cijena?,cao,6639237aa4786b2ca0a9db4d,663923bda4786b2ca0a9db55,2024-05-06T18:37:46.386Z,2024-05-06T18:38:53.988Z,0
+6639249ca4786b2ca0a9db73,Istanbul,Turska,super,/images/Destinations/Default.jpg,4.9,Azija,a,,,,,,,,,0

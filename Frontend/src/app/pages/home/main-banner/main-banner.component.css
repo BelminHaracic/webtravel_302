@@ -1,0 +1,207 @@
+
+#particles-js {
+  height: 900px;
+  width: 100%;
+  background-color: #58AEC4;
+  background-image: url("src/assets/images/Background.jpg");
+  background-size: cover;
+  background-position: center; 
+  position: relative;
+}
+#main-heading {
+  font-size: 60px;
+  color: #eff8fd;
+  font-family: inherit;
+  text-align: center;
+  white-space: nowrap; /* Tekst će biti u jednom redu */
+  animation: slideInRight 4s 1; /* Dodata CSS animacija */
+  
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(50%); /* Početak animacije */
+  }
+  100% {
+    transform: translateX(0); /* Kraj animacije */
+  }
+}
+
+.container{
+  pointer-events: none;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 525px;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 180px 0;
+
+
+}
+
+
+
+
+
+#logo{
+  display: flex;
+  flex-direction: row;
+  width: 20%;
+  padding: 5px;
+
+}
+
+#logo h1{
+  text-align: center;
+  margin: auto;
+  color: #095680;
+  font-family: 'Roboto', sans-serif; 
+  font-weight: bold; 
+  padding-left: 20px;
+  font-size: 50px;
+}
+
+
+#buttons{
+  pointer-events: none;
+  display: grid;
+  justify-content: center;
+  grid-auto-flow: column;
+
+
+}
+
+button {
+  pointer-events: all;
+  width: 150px;
+  margin: 5px;
+  color: #eff8fd;
+
+}
+
+#right-btn{
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.btn-text{
+  font-family: "Rubik";
+}
+
+.slide {
+  font-size: 20px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 13px 30px 13px;
+  outline: 0;
+  border: 1px solid #eff8fd;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(239, 248, 253, 0.2);
+}
+
+.slide i {
+  opacity: 0;
+  font-size: 15px;
+  transition: 0.5s;
+  position: absolute;
+  right: 5px;
+  top: 22px;
+}
+
+#scroll-down{
+  opacity: 0;
+  font-size: 20px;
+  transition: 0.5s;
+  position: absolute;
+  right: 65px;
+  top: 40px;
+}
+
+.slide div {
+  transition: transform 0.8s;
+  padding: 5px;
+}
+
+.slide:hover div {
+  transform: translateX(-6px);
+}
+
+.slide #div-down {
+  transition: transform 0.8s;
+}
+
+.slide:hover #div-down {
+  transform: translateY(-6px);
+}
+
+.slide::after {
+  content: "";
+  background-color: #66f2d5;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+}
+
+.slide:hover i {
+  opacity: 1;
+  transform: translateX(-6px);
+}
+
+.slide:hover #scroll-down{
+  opacity: 1;
+  transform: translateY(-6px);
+}
+
+#logo-small{
+  display: none;
+}
+@media screen and (max-width: 550px){
+
+
+
+  .container{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+  }
+  #heading1 #logo{
+    display: none;
+  }
+
+
+
+  #buttons{
+    display: grid;
+    justify-content: left;
+    margin-top: 50px;
+    margin-left: 65px;
+    grid-auto-flow: column;
+    pointer-events: all;
+  }
+
+  #right-btn{
+    margin: 0;
+  }
+
+
+
+
+}
+#logo {
+  margin: 10px 20px 5px 20px;
+}
+
+#logo img {
+  width: 100px;
+}
+

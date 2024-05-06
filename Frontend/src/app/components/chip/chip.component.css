@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .mat-form-field {
+    width: 700px; /* Prilagodite širinu po potrebi */
+  }
+  
+  .mat-chip-list-wrapper input {
+    font-size: 18px; /* Povećajte font */
+    color: #333;
+    border-bottom: 1px solid #ccc;
+  }
+  

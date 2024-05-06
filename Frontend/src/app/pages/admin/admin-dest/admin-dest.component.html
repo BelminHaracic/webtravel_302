@@ -1,0 +1,196 @@
+<div class="content">
+  <div class="destinations">
+
+      <mat-tab-group mat-align-tabs="center" preserveContent>
+
+        <mat-tab label="KREIRAJ">
+          <div class="create-dest">
+
+            <form [formGroup]="destinationForm" (ngSubmit)="createDest()">
+
+              <div class="form-title">
+                <h1>Kreiraj novu destinaciju:</h1>
+              </div>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Grad</mat-label>
+                    <input matInput formControlName="city">
+                    <mat-hint>Unesite ime grada</mat-hint>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Zemlja</mat-label>
+                    <input matInput formControlName="country">
+                    <mat-hint>Unesite ime zemlje</mat-hint>
+                </mat-form-field>
+
+                <div class="image-review">
+                  <label for="imageUpload" class="image-upload-container">
+                    <span class="upload-label">Odaberi sliku</span>
+                    <input type="file" id="imageUpload" (change)="onFileSelected($event)" accept="image/*">
+                  </label>
+                  <div class="image-preview" *ngIf="selectedFile">
+                    <img [src]="imageUrl" alt="Preview">
+                  </div>
+                  
+                
+                    <mat-form-field appearance="fill">
+                        <mat-label>Ocjena</mat-label>
+                        <input matInput type="number" min="0" value="3" max="5" step="0.1" formControlName="review">
+                        <mat-hint>Cifre između 0 i 5</mat-hint>
+                    </mat-form-field>
+                </div>
+
+                <mat-form-field appearance="fill">
+                  <mat-label>Kontinent</mat-label>
+                  <mat-select formControlName="continent">
+                      <mat-option *ngFor="let continent of continents" [value]="continent">{{ continent }}</mat-option>
+                  </mat-select>
+              </mat-form-field>
+              
+
+              <mat-form-field>
+                <mat-label>Kategorije</mat-label>
+
+                <mat-chip-list #chipList aria-label="Izbor kategorija">
+                    <mat-chip *ngFor="let category of Categories" (removed)="remove(category)">
+                      {{category.name}}
+                      <button matChipRemove>
+                        <mat-icon>cancel</mat-icon>
+                      </button>
+                    </mat-chip>
+                    <input placeholder="Nova kategorija..."
+                           [matChipInputFor]="chipList"
+                           [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                           [matChipInputAddOnBlur]="addOnBlur"
+                           (matChipInputTokenEnd)="add($event)"
+                           (keyup.enter)="submit();"
+                           formControlName="categories">
+
+                  </mat-chip-list>
+
+            </mat-form-field>
+
+
+                <mat-form-field appearance="fill">
+                  <mat-label>Opis</mat-label>
+                  <textarea matInput formControlName="description"></textarea>
+                  <mat-hint>Opis destinacije</mat-hint>
+                </mat-form-field>
+              
+
+                <button mat-button type="submit" id="form-btn">Pošalji</button>
+
+            </form>
+
+
+          </div>
+
+
+
+        </mat-tab>
+        
+        <mat-tab label="UREĐIVANJE">
+          <div class="show-dest">
+            <div class="action-btn">
+              <mat-form-field appearance="fill">
+                <mat-label>Poredaj po</mat-label>
+                <mat-select (selectionChange)="sortDestinationsBy($event.value)">
+                  <mat-option value="original">Originalni redoslijed</mat-option>
+                  <mat-option value="alphabetical">Abecedno</mat-option>
+                  <mat-option value="reverseAlphabetical">Obrnuto abecedno</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+           
+            <mat-accordion #myaccordion="matAccordion" multi="true">
+              <mat-expansion-panel class="dest" *ngFor="let destination of destinations"
+                (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+
+                <mat-expansion-panel-header>
+                  <p>{{destination.city}}, {{destination.country}}</p>
+                </mat-expansion-panel-header>
+
+                <div class="dest-section">
+
+                  <div class="dest-info" style="{{showInput}}">
+
+                    <img [src]="destination.imageURL">
+
+                    <span><strong>Grad:</strong>{{destination.city}}</span>
+      <span><strong>Zemlja:</strong>{{destination.country}}</span>
+      <span><strong>Opis:</strong>{{destination.description}}</span>
+      <span><strong>Ocjena:</strong>{{destination.review}}</span>
+      <span>
+        <strong>Kategorije:</strong>{{splitCategories(destination.categories)}}
+      </span>
+      <span><strong>Kontinent:</strong>{{destination.continent}}</span> <!-- Prikaz kontinenta -->
+      <span><strong>ID:</strong>{{destination._id}}</span>
+                  </div>
+
+
+                  <div class="dest-edit" style="{{hideInput}}">
+
+                    <img [src]="destination.imageURL">
+
+                    <form class="editForm" [formGroup]="editForm" (ngSubmit)="editDest(destination._id)">
+
+                      <mat-form-field appearance="fill">
+                        <mat-label>Grad</mat-label>
+                        <input matInput value="{{destination.city}}" formControlName="cityEdit">
+                        <mat-hint><strong><i>{{destination.city}}</i></strong></mat-hint>
+                      </mat-form-field>
+
+                      <mat-form-field appearance="fill">
+                        <mat-label>Zemlja</mat-label>
+                        <input matInput formControlName="countryEdit">
+                        <mat-hint><strong><i>{{destination.country}}</i></strong></mat-hint>
+                      </mat-form-field>
+
+                      <mat-form-field appearance="fill">
+                        <mat-label>Ocjena</mat-label>
+                        <input matInput value="{{destination.review}}" min="0" max="5" step="0.1" formControlName="reviewEdit">
+                        <mat-hint><strong><i>{{destination.review}}</i></strong></mat-hint>
+                      </mat-form-field>
+
+                      <mat-form-field appearance="fill">
+                        <mat-label>Opis</mat-label>
+                        <textarea matInput value="{{destination.description}}" formControlName="descriptionEdit"></textarea>
+                      </mat-form-field>
+                      
+                      <mat-form-field appearance="fill">
+                        <mat-label>Kontinent</mat-label>
+                        <mat-select formControlName="continent">
+                            <mat-option *ngFor="let continent of continents" [value]="continent">{{ continent }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    
+                      
+                      <button mat-button type="submit" style={{hideInput}}>POŠALJI</button>
+
+
+                    </form>
+                  </div>
+
+                </div>
+
+                <mat-action-row>
+                  <!-- admin-dest.component.html -->
+<button mat-button color="warn" (click)="deleteDest(destination._id)">OBRIŠI</button>
+
+                  <button mat-button (click)="editEvent(true); " style="{{showInput}}">UREDI</button>
+                  <button mat-button (click)="editEvent(false)" style={{hideInput}}>UNDO</button>
+                </mat-action-row>
+
+              </mat-expansion-panel>
+            </mat-accordion>
+
+
+          </div>
+        </mat-tab>
+
+
+      </mat-tab-group>
+
+    </div>
+</div>

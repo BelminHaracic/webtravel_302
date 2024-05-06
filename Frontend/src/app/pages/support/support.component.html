@@ -1,0 +1,42 @@
+<div id="top">
+    <app-navbar></app-navbar>
+</div>
+    
+<div class="wrapper">
+    <div id="title">
+        <h1>Podrška</h1>
+    </div>
+
+
+
+    <div class="container">
+        <div class="info">
+            <div class="form-title">
+                <h2>Kontaktirajte nas:</h2>
+            </div>
+    
+            <form [formGroup]="SupportForm" (ngSubmit)="sentInfo()">
+                <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" placeholder="user@email.com" formControlName="email">
+                    <mat-error>Molimo unesite ispravnu email adresu</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Naslov</mat-label>
+                    <input matInput type="text" placeholder="Naslov" formControlName="subject">
+                    <mat-error>Molimo unesite ispravan naslov</mat-error>
+                </mat-form-field>
+    
+                <mat-form-field appearance="fill">
+                    <mat-label>Upit</mat-label>
+                    <textarea matInput style="height: 80px;" formControlName="message" placeholder="Ovdje upišite poruku..."></textarea>
+                    <mat-error>Molimo unesite ispravan upit</mat-error>
+                </mat-form-field>
+    
+                <button mat-button id="form-btn" [disabled]="!SupportForm.valid">POŠALJI</button>
+            </form>
+        </div>
+    </div>
+</div>
+    
+<app-footer></app-footer>

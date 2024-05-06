@@ -1,0 +1,75 @@
+/* General styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f2f7fc; /* Pozadinska boja */
+}
+
+.content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header styles */
+.bookings .home-link {
+  font-size: 18px;
+  color: #4eaaff;
+  text-decoration: none;
+}
+
+.bookings .home-link:hover {
+  text-decoration: underline;
+}
+
+.bookings .header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.bookings h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Booking styles */
+.booking {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.booking p {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.booking button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #f44336;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.booking button:hover {
+  background-color: #d32f2f;
+}
+
+/* Empty bookings message styles */
+.bookings .empty-message {
+  font-size: 18px;
+  color: #555;
+}

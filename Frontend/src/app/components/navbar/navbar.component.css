@@ -1,0 +1,198 @@
+.container {
+  font-weight: 700;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(23, 137, 230, 0.986), rgba(70, 188, 235, 0.8)); /* Promenjene boje sa dodatom alfa vrednošću */
+  width: 100%;
+  padding: 10px 20px;
+  border-bottom: #022027 solid 6px;
+}
+
+#logo {
+  margin: 10px 30px 5px 20px;
+}
+
+#logo img {
+  width: 55px;
+  transition: transform 0.4s ease-in-out;
+}
+
+#logo img:hover {
+  transform: rotate(200deg);
+}
+
+.container .container-items {
+  display: flex;
+  flex-direction: row;
+  margin-right: 20px;
+}
+
+button {
+  font-size: 17px;
+  font-family: "Rubik", sans-serif;
+  color: #ffffff;
+  font-weight: bold;
+  margin: 10px 2px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); 
+}
+
+button:hover {
+  background-color: #094a5c;
+}
+
+#sandwich {
+  display: none;
+}
+
+label {
+  font-size: 20px;
+  text-align: center;
+  display: none;
+  width: 26px;
+  padding: 5px;
+  color: white;
+}
+
+#toggle {
+  display: none;
+}
+
+@media only screen and (max-width: 550px) {
+  .container {
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .container .container-items {
+    display: none;
+  }
+
+  #sandwich {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(2, 32, 39, 0.99);
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  label {
+    display: block;
+  }
+
+  #toggle:checked + #menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #menu {
+    display: none;
+  }
+
+  #menu button {
+    width: auto;
+    margin: 5px 0;
+    padding: 10px 15px;
+  }
+
+  label:hover {
+    opacity: 0.8;
+  }
+}
+
+/* Stilizacija forme za prijavu i registraciju */
+
+.login,
+.register {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 500px;
+  background-color: #ffffff;
+  border-radius: 15px; /* Zaobljeni uglovi */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Senka za naglašavanje prozora */
+  padding: 40px;
+  z-index: 3;
+}
+
+.login form,
+.register form {
+  width: 100%;
+  padding: 20px;
+}
+
+.form-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form-title h1 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333333; /* Promenjena boja teksta naslova */
+}
+
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+#form-btn {
+  width: 100%;
+  padding: 15px 20px;
+  font-size: 18px;
+  border-radius: 8px;
+  background-color: #4eaaff; /* Promenjena boja pozadine dugmeta */
+  color: #ffffff; /* Promenjena boja teksta dugmeta */
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Glatka tranzicija boje pozadine */
+}
+
+#form-btn:hover {
+  background-color: #3687cc; /* Promenjena boja pozadine dugmeta pri hoveru */
+}
+
+#reg-btn {
+  text-align: center;
+  font-size: 16px;
+  color: #4eaaff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  margin-top: 15px;
+}
+
+#reg-btn:hover {
+  color: #3687cc;
+}
+.admin-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.admin-wrapper a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #ffffff;
+  margin-right: 10px;
+}
+
+.admin-wrapper a span {
+  margin-right: 5px;
+}
+
+.admin-wrapper a mat-icon {
+  font-size: 30px;
+}

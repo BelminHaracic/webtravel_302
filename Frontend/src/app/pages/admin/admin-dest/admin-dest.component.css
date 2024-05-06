@@ -1,0 +1,240 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f2f7fc;
+}
+
+.content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.action-btn {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.action-btn button {
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #4eaaff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.action-btn button:hover {
+  background-color: #3687cc;
+}
+
+.create-dest {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.create-dest form {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.show-dest {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.dest {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.dest-section {
+  padding: 20px;
+}
+
+.dest img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px 10px 0 0;
+}
+
+.dest-info,
+.dest-edit {
+  padding: 20px;
+}
+
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.mat-action-row {
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+#form-btn,
+.editForm button {
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #4eaaff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#form-btn:hover,
+.editForm button:hover {
+  background-color: #3687cc;
+}
+
+.form-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-title h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #4eaaff;
+}
+
+.mat-chip {
+  margin-bottom: 10px;
+}
+
+.mat-expansion-panel-header {
+  font-size: 18px;
+  background-color: #4eaaff;
+  color: #fff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center; /* Center align icon with text */
+}
+
+.mat-expansion-panel-header mat-icon {
+  margin-right: 8px; /* Add spacing between icon and text */
+}
+
+.mat-expansion-panel-header .mat-expansion-indicator {
+  color: #fff;
+}
+
+.mat-expansion-panel-header.mat-expanded {
+  background-color: #3687cc; /* Change color when panel is expanded */
+}
+.image-review {
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: center; /* Centriranje sadržaja unutar roditeljskog elementa */
+}
+
+.image-review input[type="file"] {
+  display: none; /* Sakrijte stvarni input za unos datoteke */
+}
+
+.image-upload-container {
+  border: 2px dashed #ccc;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  display: inline-block;
+}
+
+.image-upload-container:hover {
+  border-color: #4eaaff;
+}
+
+.image-preview {
+  margin-top: 20px;
+  max-width: 100%;
+}
+
+.image-preview img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.upload-label {
+  font-size: 16px;
+  color: #4eaaff;
+  margin-top: 10px;
+}
+
+.upload-button {
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #4eaaff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.upload-button:hover {
+  background-color: #3687cc;
+}
+
+#scroll-to-top {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #4eaaff;
+  color: #fff;
+  cursor: pointer;
+  z-index: 2;
+  transition: all 0.3s ease-in-out;
+}
+
+#scroll-to-top:hover {
+  bottom: 54px;
+}
+.dest:hover {
+  background-color: #79b9f5; /* Promijenite boju u željenu boju */
+  transition: background-color 0.3s ease; /* Dodajte glatki prijelaz */
+}
+.dest-info span {
+  display: block; /* Promijenjeno u blok elemente */
+  margin-top: 20px; /* Smanjena margina između elemenata */
+}

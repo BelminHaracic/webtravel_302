@@ -1,0 +1,161 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f2f7fc;
+}
+
+.content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.action-btn {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+/* Stilovi za gumb "Aktiviraj korisnika" i "Deaktiviraj korisnika" */
+.mat-button-toggle-inactive {
+  background-color: green; /* Postavite željenu boju pozadine */
+  color: white; /* Postavite željenu boju teksta */
+  border-color: green; /* Postavite boju granice */
+}
+
+.mat-button-toggle-active {
+  background-color: red; /* Postavite željenu boju pozadine */
+  color: white; /* Postavite željenu boju teksta */
+  border-color: red; /* Postavite boju granice */
+}
+
+.action-btn button {
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #4eaaff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.action-btn button:hover {
+  background-color: #3687cc;
+}
+
+.show-dest {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.dest-section {
+  padding: 20px;
+}
+
+.dest-info {
+  padding: 20px;
+  border-top: 1px solid #ccc;
+}
+
+.mat-action-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.mat-action-row button {
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #f44336;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.mat-action-row button:hover {
+  background-color: #d32f2f;
+}
+
+/* Stilizacija inputa za prikazivanje duljine korisničkog imena */
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.mat-form-field input {
+  width: calc(100% - 48px); /* Širina inputa uzimajući u obzir ikonu za prikazivanje/skrivanje lozinke */
+}
+
+.mat-form-field mat-label {
+  font-weight: bold;
+  color: #4eaaff;
+}
+
+.mat-form-field mat-error {
+  color: #f44336;
+}
+
+.mat-hint {
+  color: #666;
+}
+
+/* Stilizacija ikone za prikazivanje/skrivanje lozinke */
+.mat-form-field button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.mat-form-field button:hover {
+  color: #4eaaff;
+}
+
+/* Stilizacija tabova */
+.mat-tab-group {
+  margin-top: 20px;
+}
+
+.mat-tab-header-pagination {
+  display: none; /* Sakrivanje navigacije za tabove */
+}
+
+.mat-tab-label {
+  font-weight: bold;
+  font-size: 16px;
+  color: #4eaaff;
+  transition: color 0.3s ease;
+}
+
+.mat-tab-label:hover {
+  color: #3687cc;
+}
+
+.mat-tab-body-wrapper {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.mat-tab-body {
+  padding: 20px;
+}
+.dest-info span {
+  display: block; /* Promijenjeno u blok elemente */
+  margin-top: 20px; /* Smanjena margina između elemenata */
+}
+

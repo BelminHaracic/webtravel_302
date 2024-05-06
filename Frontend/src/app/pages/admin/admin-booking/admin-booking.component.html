@@ -1,0 +1,56 @@
+<div class="content">
+  <div class="users">
+    <mat-tab-group mat-align-tabs="center" preserveContent>
+    
+      <mat-tab label="PRIKAZ">
+        <div class="show-dest">
+  
+          <!-- Ovdje su izbrisani gumbi za proširivanje i zatvaranje svih panela -->
+  
+          <mat-accordion #myaccordion="matAccordion" multi="true">
+            <mat-expansion-panel class="dest" *ngFor="let booking of bookings"
+              (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+  
+              <mat-expansion-panel-header>
+                <p> {{booking._id}}</p>
+              </mat-expansion-panel-header>
+  
+              <div class="dest-section">
+  
+                <div class="dest-info" style="{{showInput}}">
+  
+                  <span>
+                    <strong>Korisnički ID: </strong>{{userID}}
+                  </span>
+  
+                  <span>
+                    <strong>Ime i prezime putnika: </strong>{{booking.destinationID}}
+                  </span>
+  
+                  <span>
+                    <strong>Početni datum:</strong>{{booking.startDate}}
+                  </span>
+
+                  <span>
+                    <strong>Završni datum:</strong>{{booking.endDate}}
+                  </span>
+  
+                </div>
+  
+                  <mat-action-row>
+                    <button mat-button color="warn" (click)="deleteBooking(booking._id); ">OBRIŠI</button>
+                  </mat-action-row>
+
+              </div>
+  
+            </mat-expansion-panel>
+          </mat-accordion>
+  
+  
+        </div>
+      </mat-tab>
+  
+  
+    </mat-tab-group>
+  </div>
+</div>
