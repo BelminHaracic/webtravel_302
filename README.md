@@ -59,7 +59,8 @@ npm install
 ng serve
 ```
 
-
+### **Screenshoots:**
+![1](https://github.com/BelminHaracic/webtravel_302/assets/117593477/7f9850fa-962f-4251-aa54-699e360a0bdf)
 
 ---
 
