@@ -1,40 +1,40 @@
 ---
 
-## Dobrodošli na Turistički Portal 🌍🌴
+## Dobrodošli na Turističku stranicu 🌍🌴
 
 ### **Sadržaj:**
-Turistički Portal je web aplikacija dizajnirana da olakša vašu potragu za savršenim odmorom. Pregledajte aktuelna putovanja, postavljajte pitanja i mnogobrojne stvari!
+Turistička stranica je web aplikacija dizajnirana da olakša vašu potragu za savršenim odmorom. Pregledajte aktuelna putovanja, postavljajte pitanja i mnogobrojne stvari!
 
 ### **Ključne Informacije:**
 1. 🛂 **Dvije Korisničke Uloge:**
    - **Admin:** Upravlja korisnicima i putovanjima.
-     - Dodaj nove korisnike.
-     - Upravljaj oglasima za putovanja.
-     - Pregledaj postavljena pitanja.
+     - Dodaje nove korisnike.
+     - Upravlja oglasima za putovanja.
+     - Pregleda postavljena pitanja.
    - **Korisnik:**
-     - Registruj se samostalno.
-     - Pregledaj ponude putovanja.
-     - Postavi pitanje na putovanja.
-     - Prijavi se na putovanje.
-
-2. 🔐 **Stranice za Login i Registraciju:**
-   - Jednostavno se prijavite ili registrirajte.
-   - Samostalna registracija daje korisničku ulogu "korisnik".
+     - Registruje se samostalno.
+     - Pregleda ponude putovanja.
+     - Postavlja pitanja na putovanja.
+     - Prijavljuje se na putovanje.
 
 3. 🏠 **Glavna (Početna) Stranica:**
    - Pregled svih putovanja.
    - Filtriranje po kategorijama: Europa, Daleka Putovanja, Ljetovanja itd.
+   - Filtriranje prema zvijezdicama.
+   - Pregled rezervisanih destinacija.
 
 4. ⚙️ **Backend i Frontend:**
    - Backend: Node.js
    - Frontend: Angular 
-   - Dizajn prilagođen vašim željama koristeći Bootstrap ili MUI.
 
 ### **Korištenje:**
 1. **Prijava:**
    - Prijavite se kako biste pristupili svim funkcijama.
    - Registrirajte se ako nemate račun.
-
+### **Prijava kao Admin:**
+    - Username: Admin
+    - Sifra: admin123
+ 
 2. **Istraživanje:**
    - Pregledajte ponude putovanja.
    - Postavljajte pitanja i sudjelujte u diskusijama.
@@ -60,8 +60,6 @@ ng serve
 ```
 
 
-Slijedite ova uputstva kako biste uspješno pokrenuli i testirali kako backend tako i frontend vaše aplikacije. Nakon pokretanja servera, možete pristupiti aplikaciji putem odgovarajućih URL-ova.
 
 ---
 
-Ovaj tekst bi trebao sadržavati sve potrebne informacije o projektu, zajedno s detaljnim uputstvom za pokretanje i korištenje kako backend, tako i frontend dijela aplikacije.
